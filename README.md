@@ -25,9 +25,9 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
         * hover over "Share"
         * click copy spotify URI
 
-4. Install spotipy and run:
+4. Install and run:
 ```
-$ install package
+$ # install package (-e is editable flag)
 $ pip install -e .
 
 $ itunes_to_spotify [OPTIONS]
