@@ -31,7 +31,7 @@ $ git clone https://github.com/samryan18/itunes-to-spotify.git
 $ cd itunes-to-spotify
 $ pip install -e .
 
-$ itunes_to_spotify [OPTIONS]
+$ itunes_to_spotify [OPTIONS] # or run with no options to be prompted for inputs
 
 # Example (run with arguments in one go):
 $ itunes_to_spotify --verbose --playlist_uri="playlist_uri" --filepath="path_to_textfile"
