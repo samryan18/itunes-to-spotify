@@ -27,7 +27,8 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
 
 4. Install and run:
 ```
-$ # install package (-e is editable flag)
+$ git clone https://github.com/samryan18/itunes-to-spotify.git
+$ cd itunes-to-spotify
 $ pip install -e .
 
 $ itunes_to_spotify [OPTIONS]
