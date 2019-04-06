@@ -5,6 +5,7 @@ setup(
       version="0.1",
       author_email="samryan@seas.upenn.edu",
       packages=['itunes_to_spotify_package'],
+      python_requires='>=3.4',
       install_requires=[
         'spotipy',
         'Click'
