@@ -9,8 +9,9 @@ def get_spotify_connection(username_uri,
                            client_id,
                            client_secret,
                            redirect_uri) -> spotipy.Spotify:
-    SCOPE = ('playlist-modify-public, playlist-modify-private, '
-             'user-library-modify')
+                           
+    SCOPE = ('playlist-modify-public, playlist-modify-private')
+    # SCOPE = ('playlist-modify-public')
     SPOTIFY_API_TOKEN = util.prompt_for_user_token(username_uri,
                                                    scope=SCOPE,
                                                    client_id=client_id,
@@ -34,7 +35,7 @@ def create_playlist(spotify,
     # IN PROGRESS TODO
     # giving me error :(
     # for now, need to use existing playlist
-    spotify.user_playlist_create(username,
+    spotify.user_playlist_create(user=username,
                                  name=playlist_name,
                                  public=public)
     # calling it

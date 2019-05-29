@@ -12,7 +12,7 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
 ### Instructions
 1. Get spotify API credentials
     * Go to [spotify developer](https://developer.spotify.com/documentation/web-api/quick-start/) and create credentials
-    * Change the name of `example_creds.py` to `creds.py` and fill it in with the appropriate user info
+    * Change the name of `itunes_to_spotify/example_creds.py` to `itunes_to_spotify/creds.py` and fill it in with the appropriate user info
 
 2. Export iTunes playlist as text file:
     * Highlight playlist in iTunes
@@ -25,11 +25,21 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
         * hover over "Share"
         * click copy spotify URI
 
-4. Install and run:
+4. Installation
 ```
-$ # install package (-e is editable flag)
-$ pip install -e .
+# install package 
+$ sudo pip install git+https://github.com/samryan18/itunes-to-spotify.git
+```
 
+```
+# alternate installation for local development
+# -e is editable flag
+$ git clone https://github.com/samryan18/itunes-to-spotify.git
+$ pip install -e itunes-to-spotify
+```
+
+5. Run
+```
 $ itunes_to_spotify [OPTIONS]
 
 # Example (run with arguments in one go):

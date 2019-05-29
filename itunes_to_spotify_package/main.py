@@ -9,6 +9,11 @@ from itunes_to_spotify_package.search import get_uri_list
 from itunes_to_spotify_package.util import read_txtfile
 from itunes_to_spotify_package.spotify_conn import (get_spotify_connection,
                                                     overwrite_playlist)
+from itunes_to_spotify_package.spotify_conn import create_playlist
+
+
+# TEMP
+from itunes_to_spotify_package.requests_util import make_http_request
 
 
 @click.command()
@@ -22,12 +27,25 @@ def main(playlist_uri, filepath, verbose):
                                      client_id=SPOTIPY_CLIENT_ID,
                                      client_secret=SPOTIPY_CLIENT_SECRET,
                                      redirect_uri=SPOTIPY_REDIRECT_URI)
-    itunes_song_list = read_txtfile(filepath=filepath, verbose=verbose)
-    uri_list = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
-    overwrite_playlist(uri_list,
-                       spotify=spotify,
-                       playlist_uri=playlist_uri,
-                       username=SPOTIPY_USERNAME_URI)
+    # itunes_song_list = read_txtfile(filepath=filepath, verbose=verbose)
+    # uri_list = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
+    # overwrite_playlist(uri_list,
+    #                    spotify=spotify,
+    #                    playlist_uri=playlist_uri,
+    #                    username=SPOTIPY_USERNAME_URI)
+
+    create_playlist(spotify=spotify,
+                    playlist_name="suh suh suh",
+                    username=SPOTIPY_USERNAME_URI,
+                    public=False,
+                    description = "temp test playlist")
+    
+    
+    # data = {'name': "TEST_1", 'public': True, 'description': "test description"}
+    # make_http_request(url='https://api.spotify.com/v1/users/'
+    #                       'spotify:user:12183238257/playlists',
+    #                   data=data,
+    #                   auth=spotify._auth)
 
 
 if __name__ == "__main__":
