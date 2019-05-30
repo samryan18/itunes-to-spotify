@@ -20,15 +20,16 @@ from itunes_to_spotify_package.requests_util import make_http_request
 def main(playlist_uri, filepath, verbose):
     search_and_write_playlist(playlist_uri, filepath, verbose)
     
-def search_and_write_playlist(playlist_uri, filepath, verbose, creds=None):
-    if creds == None:
+def search_and_write_playlist(playlist_uri, filepath, verbose, spotify=None):
+    if spotify == None:
         from itunes_to_spotify_package.creds import creds as default_creds
         creds = default_creds
 
-    spotify = get_spotify_connection(creds['SPOTIPY_USERNAME_URI'],
-                                    client_id=creds['SPOTIPY_CLIENT_ID'],
-                                    client_secret=creds['SPOTIPY_CLIENT_SECRET'],
-                                    redirect_uri=creds['SPOTIPY_REDIRECT_URI'])
+
+        spotify = get_spotify_connection(creds['SPOTIPY_USERNAME_URI'],
+                                        client_id=creds['SPOTIPY_CLIENT_ID'],
+                                        client_secret=creds['SPOTIPY_CLIENT_SECRET'],
+                                        redirect_uri=creds['SPOTIPY_REDIRECT_URI'])
 
     itunes_song_list = read_txtfile(filepath=filepath, verbose=verbose)
     uri_list = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
