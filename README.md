@@ -25,14 +25,14 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
         * hover over "Share"
         * click copy spotify URI
 
-4. Installation
+4. Installation (either of the two options below)
 ```
-# install package 
+# normal installation 
 $ sudo pip install git+https://github.com/samryan18/itunes-to-spotify.git
 ```
 
 ```
-# alternate installation for local development
+# installation for local development
 # -e is editable flag
 $ git clone https://github.com/samryan18/itunes-to-spotify.git
 $ pip install -e itunes-to-spotify

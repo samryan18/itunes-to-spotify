@@ -1,4 +1,9 @@
-# Search Functions
+'''
+Search Functions
+
+Not pretty but gets the job done
+'''
+
 
 from typing import List, Tuple, Dict
 from itunes_to_spotify_package.util import get_info, alpha_num_lower
