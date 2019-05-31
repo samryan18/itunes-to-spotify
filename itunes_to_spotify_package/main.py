@@ -47,17 +47,18 @@ def search_and_write_playlist(filepath:str,
                                         redirect_uri=creds['SPOTIPY_REDIRECT_URI'])
 
     itunes_song_list = read_txtfile(filepath=filepath, verbose=verbose)
-    uri_list = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
+    uri_list, info_dict = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
 
     if playlist_name and playlist_desc:
         playlist_uri = create_playlist(spotify=spotify,
                             playlist_name=playlist_name,
                             description=playlist_desc)
-
-    return overwrite_playlist(uri_list,
+    url = overwrite_playlist(uri_list,
                        spotify=spotify,
                        playlist_uri=playlist_uri,
                        username=creds['SPOTIPY_USERNAME_URI'])
+    info_dict['url'] = url
+    return info_dict
 
 
 if __name__ == "__main__":

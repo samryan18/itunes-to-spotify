@@ -97,4 +97,8 @@ def get_uri_list(itunes_songs: List[Tuple[str]],
 
     print(f'> Successfully found {len(full_results_list)}/{len(itunes_songs)} '
           f'songs on spotify search')
-    return full_results_list
+    info_dict = {
+        'num_found': len(full_results_list),
+        'num_in_original': len(itunes_songs)
+    }
+    return full_results_list, info_dict
