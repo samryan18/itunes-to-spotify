@@ -3,6 +3,7 @@
 import spotipy
 import spotipy.util as util
 from typing import List, Dict
+import random
 
 
 def get_spotify_connection(username_uri,
@@ -29,20 +30,24 @@ def get_spotify_connection(username_uri,
 
 def create_playlist(spotify,
                     playlist_name: str,
-                    username: str,
                     public: bool = True,
-                    description: str = ''):
-    # IN PROGRESS TODO
-    # giving me error :(
-    # for now, need to use existing playlist
-    spotify.user_playlist_create(user=username,
-                                 name=playlist_name,
-                                 public=public)
-    # calling it
-    # create_playlist(spotify=spotify,
-    #                 playlist_name="helloWorld",
-    #                 username=SPOTIPY_USERNAME_URI,
-    #                 description = "temp test playlist")
+                    description: str = '') -> str:
+
+    user = spotify.current_user()
+    user_id = user['id']
+
+    TEMP_NAME = f'itunes2spotify_TEMPORARY_NAME_NEW_PLAYLIST{random.randint(1,1000)}'
+    spotify.user_playlist_create(user=user_id,
+                                 name=TEMP_NAME,
+                                 public=public,
+                                 description=description)
+    
+    playlists = spotify.user_playlists(user_id)
+    playlist_uri = [p for p in playlists['items'] if p['name']==TEMP_NAME][0]['uri']
+    playlist_id = [p for p in playlists['items'] if p['name']==TEMP_NAME][0]['id']
+    spotify.user_playlist_change_details(user=user_id, playlist_id=playlist_id, name=playlist_name)
+
+    return playlist_uri
 
 
 def overwrite_playlist(full_results_list: List[Dict],

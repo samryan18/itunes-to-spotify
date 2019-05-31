@@ -38,7 +38,39 @@ $ git clone https://github.com/samryan18/itunes-to-spotify.git
 $ pip install -e itunes-to-spotify
 ```
 
-5. Run
+5. Run to Create New Playlist
+```
+$ itunes_to_spotify_new [OPTIONS]
+
+# Example (run with arguments in one go):
+$ itunes_to_spotify_new --verbose --playlist_name="awesome playlist" --playlist_desc="description" --filepath="path_to_textfile"
+```
+A link will open asking you to login and allow the app to access your playlists.
+
+---
+
+### Options
+
+##### Playlist Name [--playlist_name]
+* Include `--playlist_name="playlist_name"` to specify name of new playlist
+* Prompted for if not included
+
+##### Playlist Description [--playlist_desc]
+* Include `--playlist_desc="playlist_desc"` to specify description of new playlist
+* Prompted for if not included
+
+##### Path to iTunes playlist file [--filepath]
+* Include `--filepath="path_to_textfile"` to specify filepath
+* Prompted for if not included
+
+##### Verbose [--verbose]
+* Flag for whether to print info about the run
+* Include `--verbose` to run in this mode
+
+##### Help [--help]
+* Run `$ itunes_to_spotify_new --help` for help.
+
+6. Run to Overwrite Existing Playlist
 ```
 $ itunes_to_spotify [OPTIONS]
 

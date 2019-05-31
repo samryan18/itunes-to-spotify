@@ -7,11 +7,12 @@ setup(
       packages=['itunes_to_spotify_package'],
       python_requires='>=3.4',
       install_requires=[
-        'spotipy',
+        'spotipy @ git+https://github.com/plamere/spotipy.git#egg=spotipy',
         'Click'
       ],
       entry_points={
         'console_scripts':
-        ['itunes_to_spotify = itunes_to_spotify_package.main:main']
+        ['itunes_to_spotify = itunes_to_spotify_package.main:main_overwrite',
+        'itunes_to_spotify_new = itunes_to_spotify_package.main:main_new_playlist']
       }
 )
