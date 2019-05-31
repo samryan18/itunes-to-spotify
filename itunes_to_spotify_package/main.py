@@ -54,7 +54,7 @@ def search_and_write_playlist(filepath:str,
                             playlist_name=playlist_name,
                             description=playlist_desc)
 
-    overwrite_playlist(uri_list,
+    return overwrite_playlist(uri_list,
                        spotify=spotify,
                        playlist_uri=playlist_uri,
                        username=creds['SPOTIPY_USERNAME_URI'])

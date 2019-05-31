@@ -74,3 +74,4 @@ def overwrite_playlist(full_results_list: List[Dict],
     playlist_url = playlist_info['external_urls']['spotify']
 
     print(f'> Successfully overwrote playlist. \n> URL: {playlist_url}')
+    return playlist_url
