@@ -70,7 +70,9 @@ A link will open asking you to login and allow the app to access your playlists.
 ##### Help [--help]
 * Run `$ itunes_to_spotify_new --help` for help.
 
-6. Run to Overwrite Existing Playlist
+---
+
+## Optional: Run to Overwrite Existing Playlist
 ```
 $ itunes_to_spotify [OPTIONS]
 
