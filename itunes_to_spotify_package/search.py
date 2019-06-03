@@ -17,6 +17,7 @@ def get_uri_list(itunes_songs: List[Tuple[str]],
     spotify to create a list or spotify songs that match.
     '''
     full_results_list = []
+    no_match_list = []
     for track, artist in itunes_songs:
         # search song on spotify
         results = spotify.search(q=track, type='track',  limit=50)
@@ -67,6 +68,7 @@ def get_uri_list(itunes_songs: List[Tuple[str]],
                 if verbose:
                     print(f'No match within search results '
                           f'for {track} by {artist}')
+                    no_match_list.append({'name': track, 'artist': artist})
             else:
                 # results exist!
                 no_match = True
@@ -94,11 +96,14 @@ def get_uri_list(itunes_songs: List[Tuple[str]],
                     if verbose:
                         print(f'No match within search results '
                               f'for {track} by {artist}')
+                        no_match_list.append({'name': track, 'artist': artist})
 
     print(f'> Successfully found {len(full_results_list)}/{len(itunes_songs)} '
           f'songs on spotify search')
     info_dict = {
         'num_found': len(full_results_list),
-        'num_in_original': len(itunes_songs)
+        'num_in_original': len(itunes_songs),
+        'full_results_list': full_results_list,
+        'no_match_list': no_match_list
     }
     return full_results_list, info_dict
