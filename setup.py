@@ -8,7 +8,7 @@ setup(
       python_requires='>=3.4',
       install_requires=[
         'spotipy @ git+https://github.com/plamere/spotipy.git#egg=spotipy',
-        'Click'
+        'Click',
       ],
       entry_points={
         'console_scripts':

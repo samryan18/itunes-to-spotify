@@ -45,8 +45,9 @@ def get_info(songs_results: Dict) -> Tuple[str]:
     url = songs_results['external_urls']['spotify']
     uri = songs_results['external_urls']['spotify'].split('/')[-1]
     name = songs_results['name']
+    popularity = songs_results['popularity']
     spotify_artist = songs_results['artists'][0]['name']  # TODO: all artists
-    return (url, uri, name, spotify_artist)
+    return (url, uri, name, spotify_artist, popularity)
 
 
 def alpha_num_lower(s: str) -> str:
