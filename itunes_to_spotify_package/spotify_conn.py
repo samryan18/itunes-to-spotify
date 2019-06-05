@@ -35,16 +35,22 @@ def create_playlist(spotify,
 
     user = spotify.current_user()
     user_id = user['id']
-
     TEMP_NAME = f'itunes2spotify_TEMPORARY_NAME_NEW_PLAYLIST{random.randint(1,1000)}'
     spotify.user_playlist_create(user=user_id,
                                  name=TEMP_NAME,
                                  public=public,
                                  description=description)
     
-    playlists = spotify.user_playlists(user_id)
-    playlist_uri = [p for p in playlists['items'] if p['name']==TEMP_NAME][0]['uri']
-    playlist_id = [p for p in playlists['items'] if p['name']==TEMP_NAME][0]['id']
+    playlists = []
+    for i in range(2000):
+        # max is 100000
+        new_playlists = spotify.user_playlists(user_id, limit=50, offset=(50*i))['items']
+        playlists = playlists + new_playlists
+        if not new_playlists:
+            break
+    
+    playlist_uri = [p for p in playlists if p['name']==TEMP_NAME][0]['uri']
+    playlist_id = [p for p in playlists if p['name']==TEMP_NAME][0]['id']
     spotify.user_playlist_change_details(user=user_id, playlist_id=playlist_id, name=playlist_name)
 
     return playlist_uri
@@ -59,9 +65,15 @@ def overwrite_playlist(full_results_list: List[Dict],
                     for k, uri in result.items() if k == 'uri']
 
     # replace all tracks in playlist with new tracks
-    spotify.user_playlist_replace_tracks(user=username,
-                                         playlist_id=playlist_uri,
-                                         tracks=uri_songlist[0:100])
+    try:
+        spotify.user_playlist_replace_tracks(user=username,
+                                             playlist_id=playlist_uri,
+                                             tracks=uri_songlist[0:100])
+    except Exception as e:
+        print(f'\n\nThis playlist URI causing issue: {playlist_uri}')
+        print(f'\nThis uri song list caused the error: {uri_songlist}')
+        raise
+
     while len(uri_songlist) > 100:
         # only 100 songs allowed per request
         uri_songlist = uri_songlist[100:]

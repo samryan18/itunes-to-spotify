@@ -49,7 +49,7 @@ def search_and_write_playlist(filepath:str,
     itunes_song_list = read_txtfile(filepath=filepath, verbose=verbose)
     uri_list, info_dict = get_uri_list(itunes_song_list, spotify=spotify, verbose=verbose)
 
-    if playlist_name and playlist_desc:
+    if playlist_name:
         playlist_uri = create_playlist(spotify=spotify,
                             playlist_name=playlist_name,
                             description=playlist_desc)
