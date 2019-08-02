@@ -3,16 +3,16 @@ Have old iTunes playlists of songs you downloaded (and maybe named poorly)?
 
 This package converts iTunes playlists into Spotify playlists by searching Spotify for the songs in your iTunes playlist and adding them to a Spotify playlist. Works for most songs even if the name and artist are not written exactly how they appear in Spotify.
 
-This project is in a live web app [here](http://itunes-to-spotify.herokuapp.com/).
+This project is in a live web app [HERE](http://itunes-to-spotify.herokuapp.com/). Code for the web app is in a separate repository.
 
 <img src="assets/example.png" />
 
-Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a python version of the [spotify API](https://developer.spotify.com/documentation/web-api/) :)
+Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a python wrapper of the [spotify API](https://developer.spotify.com/documentation/web-api/) :)
 
 
 ---
 
-### Instructions
+### Instructions (command line version)
 1. Get spotify API credentials
     * Go to [spotify developer](https://developer.spotify.com/documentation/web-api/quick-start/) and create credentials
     * Change the name of `itunes_to_spotify/example_creds.py` to `itunes_to_spotify/creds.py` and fill it in with the appropriate user info
