@@ -12,7 +12,12 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
 
 ---
 
-### Instructions (command line version)
+## Instructions
+1. Head over to [itunes-to-spotify.herokuapp.com](http://itunes-to-spotify.herokuapp.com/), log in, and get going!
+
+---
+
+## Instructions (local dev / command line version)
 1. Get spotify API credentials
     * Go to [spotify developer](https://developer.spotify.com/documentation/web-api/quick-start/) and create credentials
     * Change the name of `itunes_to_spotify/example_creds.py` to `itunes_to_spotify/creds.py` and fill it in with the appropriate user info
@@ -30,8 +35,8 @@ Thanks to [spotipy](https://spotipy.readthedocs.io/en/latest/) for making a pyth
 
 4. Installation (either of the two options below)
 ```
-# normal installation 
-$ sudo pip install git+https://github.com/samryan18/itunes-to-spotify.git
+# installation for command line version
+$ pip install git+https://github.com/samryan18/itunes-to-spotify.git
 ```
 
 ```
