@@ -1,5 +1,5 @@
 # iTunes to Spotify
-Have old iTunes playlists of songs you downloaded (and maybe named poorly)?
+Have old iTunes playlists of songs you downloaded (and maybe named poorly)? Well, you probably don't but I did and my dad did so I made a thing.
 
 This package converts iTunes playlists into Spotify playlists by searching Spotify for the songs in your iTunes playlist and adding them to a Spotify playlist. Works for most songs even if the name and artist are not written exactly how they appear in Spotify.
 
